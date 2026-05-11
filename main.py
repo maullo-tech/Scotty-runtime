@@ -80,20 +80,18 @@ while True:
 
     if emergency_streak >= 2:
         target = "powersave"
-        print("\n[Scotty] Emergency state - Forzando powersave")
     else:
         target = select_governor(field, governors, current, annealing_temp)
 
-    if target != current:
-        if governor_lock_cycles > 0:
-            target = current
-        governor_lock_cycles = 2
-    else:
-        governor_lock_cycles = max(0, governor_lock_cycles - 1)
-
-    if target != current:
+    # Histéresis corregida: transición limpia + bloqueo de 3 ciclos
+    if target != current and governor_lock_cycles == 0:
         print(f"[Scotty] {current} -> {target}")
         set_governor(target)
+        current = target
+        governor_lock_cycles = 3
+        annealing_temp = max(annealing_temp, 0.8)
+    elif governor_lock_cycles > 0:
+        governor_lock_cycles -= 1
 
     heavy = detect_heavy_process()
     if heavy and heavy['pid'] != last_heavy_pid:
@@ -123,6 +121,6 @@ while True:
     print(f"ANNEALING TEMP: {round(annealing_temp,2)}")
 
     field.evolve(annealing_temp, fgpu)
-    annealing_temp += random.uniform(-0.05, 0.05)
-    annealing_temp = max(0.1, min(annealing_temp, 2.0))
+    annealing_temp += random.uniform(-0.03, 0.03)
+    annealing_temp = max(0.5, min(annealing_temp, 1.2))
     time.sleep(4)

@@ -2,11 +2,10 @@ import math
 import random
 
 ATTRACTORS = {
-    "powersave":    {"coh": 0.15, "den": 0.20, "sigma": 0.14},
-    "conservative": {"coh": 0.35, "den": 0.45, "sigma": 0.14},
-    "ondemand":     {"coh": 0.55, "den": 0.65, "sigma": 0.14},
-    "schedutil":    {"coh": 0.75, "den": 0.80, "sigma": 0.14},
-    "performance":  {"coh": 0.90, "den": 0.92, "sigma": 0.14}
+    "powersave":   {"coh": 0.15, "den": 0.20, "sigma": 0.15},
+    "ondemand":    {"coh": 0.45, "den": 0.55, "sigma": 0.15},
+    "schedutil":   {"coh": 0.65, "den": 0.75, "sigma": 0.15},
+    "performance": {"coh": 0.85, "den": 0.88, "sigma": 0.15}
 }
 
 def select_governor(field, governors, current, annealing_temp):
@@ -29,8 +28,8 @@ def select_governor(field, governors, current, annealing_temp):
 
     norm = [(g, p / total) for g, p in probs]
 
-    if random.random() < annealing_temp * 0.15:
-        return random.choice(governors)
+    if random.random() < annealing_temp * 0.12:
+        return random.choice([g for g, _ in norm if g != current])
 
     r = random.random()
     acc = 0.0
