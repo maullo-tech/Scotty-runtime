@@ -180,15 +180,14 @@ El comportamiento global emerge de la interacción entre estos subsistemas.
 
 El diseño de esta nueva versión de Scotty está inspirado en modelos de:
 
-* sistemas dinámicos no lineales
-* control adaptativo basado en estados
-* optimización por exploración de configuraciones
-* dinámica de campos acoplados
+- sistemas dinámicos no lineales  
+- control adaptativo basado en estados  
+- optimización por exploración de configuraciones  
+- dinámica de campos acoplados  
 
-Este proyecto incorpora ideas discutidas en conversaciones con Pablo Pacheco, en particular sobre sistemas adaptativos, resonancia y organización topológica de procesos en entornos complejos.
+El proyecto incorpora ideas discutidas en conversaciones con Pablo Pacheco, relacionadas con sistemas adaptativos, resonancia y organización topológica de procesos en entornos complejos.## 📄 Licencia
+
 ---
-
-## 📄 Licencia
 
 Este proyecto se distribuye bajo licencia **GNU General Public License v3.0 (GPL-3.0)**.
 
