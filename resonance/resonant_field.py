@@ -25,7 +25,7 @@ class ResonantField:
                 if node.id == other.id:
                     continue
                 r = node.resonance(other)
-                if r > 0.35:
+                if r > 0.25:
                     node.links.append(other.id)
 
     def evolve(self, temp_factor=1.0, gpu_factor=1.0):
