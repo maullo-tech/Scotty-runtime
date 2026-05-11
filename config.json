@@ -1,0 +1,51 @@
+{
+  "check_interval": 5,
+  "resonance": {
+    "enabled": true,
+    "base_interval": 30,
+    "pulse_duration": 0.5,
+    "frequency_adaptation_rate": 0.5,
+    "min_interval": 5,
+    "max_interval": 60,
+    "temperature_initial": 0.5,
+    "temperature_decay": 0.1,
+    "temperature_min": 0.01
+  },
+  "gaming": {
+    "cpu_threshold": 50.0,
+    "gpu_threshold": 20.0,
+    "gpu_temp_threshold": 55.0,
+    "pulse_duration": 0.08,
+    "base_interval": 8.0,
+    "temperature": 0.3,
+    "fluctuation_scale": 0.005
+  },
+  "energy": {
+    "use_rapl": true,
+    "fallback_cpu_weight": 0.4,
+    "fallback_ram_weight": 0.2,
+    "fallback_temp_weight": 0.4,
+    "emergency_temp_threshold": 75,
+    "emergency_power_limit": 120.0
+  },
+  "process_control": {
+    "enabled": true,
+    "cpu_percent_limit": 50.0,
+    "memory_percent_limit": 35.0,
+    "renice_value": 10
+  },
+  "memory": {
+    "enabled": true
+  },
+  "safety": {
+    "cpu_emergency": 95,
+    "temp_emergency": 85,
+    "load_per_core_emergency": 2.5,
+    "gpu_temp_emergency": 85
+  },
+  "gpu_integration": {
+    "temp_threshold": 40,
+    "usage_threshold": 5,
+    "max_gpu_factor": 2.0
+  }
+}

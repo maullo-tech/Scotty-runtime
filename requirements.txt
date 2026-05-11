@@ -1,0 +1,3 @@
+psutil
+numpy
+nvidia-ml-py
