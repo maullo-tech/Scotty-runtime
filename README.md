@@ -185,9 +185,11 @@ El diseño de esta nueva versión de Scotty está inspirado en modelos de:
 - optimización por exploración de configuraciones  
 - dinámica de campos acoplados  
 
-El proyecto incorpora ideas discutidas en conversaciones con Pablo Pacheco, relacionadas con sistemas adaptativos, resonancia y organización topológica de procesos en entornos complejos.## 📄 Licencia
+El proyecto incorpora ideas discutidas en conversaciones con Pablo Pacheco, relacionadas con sistemas adaptativos, resonancia y organización topológica de procesos en entornos complejos.
 
 ---
+
+## 📄 Licencia
 
 Este proyecto se distribuye bajo licencia **GNU General Public License v3.0 (GPL-3.0)**.
 
