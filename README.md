@@ -8,7 +8,7 @@ No usa reglas fijas. En su interior, un **campo resonante de 8 nodos** evolucion
 
 ## 🧠 ¿Qué hace?
 
-- Monitorea CPU, RAM, temperatura y potencia eléctrica (RAPL).
+- Monitorea CPU,GPU,RAM, temperatura y potencia eléctrica (RAPL).
 - Mantiene un campo dinámico con nodos, frecuencias y fases que se acoplan por resonancia.
 - Detecta estados globales del campo (chaotic, fragmented, meta‑stable, harmonic) y elige el governor más apropiado mediante **atractores emergentes**.
 - Protege el hardware forzando `powersave` si la temperatura, la carga o la potencia superan límites seguros.
