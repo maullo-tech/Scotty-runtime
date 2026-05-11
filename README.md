@@ -1,4 +1,4 @@
-# Scotty v8.3 – Emergent Governance Resonant Runtime
+# Scotty-runtime v8.3 – Emergent Governance Resonant Runtime
 
 Scotty es un **runtime adaptativo para gestión dinámica de recursos en sistemas Linux**, orientado a la optimización continua de CPU mediante telemetría del sistema y políticas de control no estáticas.
 
@@ -178,7 +178,7 @@ El comportamiento global emerge de la interacción entre estos subsistemas.
 
 ## 📚 Inspiración
 
-El diseño de esta nueva versión de Scotty está inspirado en modelos de:
+El diseño de esta nueva versión de Scotty-runtime está inspirado en modelos de:
 
 - sistemas dinámicos no lineales  
 - control adaptativo basado en estados  
