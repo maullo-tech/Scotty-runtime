@@ -4,14 +4,14 @@ import random
 class ResonantNode:
     def __init__(self, node_id):
         self.id = node_id
-        self.frequency = random.uniform(0.5, 2.0)
+        self.frequency = random.uniform(0.0, 1.0)
         self.phase = random.uniform(0, math.pi)
         self.energy = random.uniform(0.2, 1.0)
         self.links = []
 
     def resonance(self, other):
         delta = abs(self.frequency - other.frequency)
-        return max(0, 1 - delta)
+        return max(0.0, 1.0 - delta)
 
 class ResonantField:
     def __init__(self, size=8):
@@ -32,9 +32,11 @@ class ResonantField:
         effective_factor = temp_factor * gpu_factor
         for node in self.nodes:
             node.frequency += random.uniform(-0.12, 0.12) * effective_factor
+            node.frequency = max(0.0, min(1.0, node.frequency))
             node.phase += random.uniform(-0.25, 0.25) * effective_factor
+            node.phase = node.phase % (2 * math.pi)
             node.energy += random.uniform(-0.05, 0.05) * effective_factor
-            node.energy = max(0, min(node.energy, 2))
+            node.energy = max(0.0, min(2.0, node.energy))
         self.connect()
 
     def average_resonance(self):
@@ -43,9 +45,7 @@ class ResonantField:
             for other_id in node.links:
                 other = self.nodes[other_id]
                 values.append(node.resonance(other))
-        if not values:
-            return 0
-        return round(sum(values) / len(values), 2)
+        return round(sum(values) / len(values), 2) if values else 0.0
 
     def topology_density(self):
         total_links = sum(len(n.links) for n in self.nodes)
@@ -56,4 +56,4 @@ class ResonantField:
         phases = [n.phase for n in self.nodes]
         avg = sum(phases) / len(phases)
         variance = sum(abs(p - avg) for p in phases) / len(phases)
-        return round(max(0, 1 - variance), 2)
+        return round(max(0.0, 1.0 - variance), 2)
