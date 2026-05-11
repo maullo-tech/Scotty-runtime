@@ -31,6 +31,7 @@ else:
 annealing_temp = 1.0
 last_heavy_pid = None
 emergency_streak = 0
+governor_lock_cycles = 0
 
 while True:
     cpu = psutil.cpu_percent(interval=0.5)
@@ -82,6 +83,13 @@ while True:
         print("\n[Scotty] Emergency state - Forzando powersave")
     else:
         target = select_governor(field, governors, current, annealing_temp)
+
+    if target != current:
+        if governor_lock_cycles > 0:
+            target = current
+        governor_lock_cycles = 2
+    else:
+        governor_lock_cycles = max(0, governor_lock_cycles - 1)
 
     if target != current:
         print(f"[Scotty] {current} -> {target}")

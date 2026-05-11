@@ -1,5 +1,6 @@
 import math
 import random
+import cmath
 
 class ResonantNode:
     def __init__(self, node_id):
@@ -53,7 +54,5 @@ class ResonantField:
         return round(total_links / max_links, 2)
 
     def coherence(self):
-        phases = [n.phase for n in self.nodes]
-        avg = sum(phases) / len(phases)
-        variance = sum(abs(p - avg) for p in phases) / len(phases)
-        return round(max(0.0, 1.0 - variance), 2)
+        z = sum(cmath.exp(1j * n.phase) for n in self.nodes) / len(self.nodes)
+        return round(abs(z), 2)
