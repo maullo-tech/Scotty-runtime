@@ -207,4 +207,4 @@ Para licencias comerciales o excepciones de distribución, contactar:
 
 ---
 
-## © 2026 Mauricio Ulloa
+2026 Mauricio Ulloa
